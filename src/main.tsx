@@ -9,6 +9,7 @@ import Register from './Pages/Register.tsx'
 import ErrorPage from './Components/ErrorPage.tsx'
 
 import Success from './Pages/Success.tsx'
+import Questions from './Pages/Questions.tsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/success",
         element: <Success />,
+      },
+      {
+        path: "/question",
+        element: <Questions />,
       },
       {
         path: "*",

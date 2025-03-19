@@ -71,34 +71,34 @@ export default function Register({}: Props) {
         </div>
         <label className="text-[18px] font-bold mt-3 ">Current Status</label>
         <div className="flex gap-4 items-center">
-  {/* Student */}
-  <label className="flex items-center gap-2 cursor-pointer group">
-    <input
-      type="radio"
-      name="role"
-      value="student"
-      className="hidden group-[&:checked]:bg-[#2A586F]"
-    />
-    <div className="w-5 h-5 border-2 border-gray-400 rounded-full flex items-center justify-center group-has-[:checked]:border-[#2A586F]">
-      <div className="w-2.5 h-2.5 bg-gray-400 rounded-full group-has-[:checked]:bg-[#2A586F]"></div>
-    </div>
-    <span className="text-black">Student</span>
-  </label>
+          {/* Student */}
+          <label className="flex items-center gap-2 cursor-pointer group">
+            <input
+              type="radio"
+              name="role"
+              value="student"
+              className="hidden group-[&:checked]:bg-[#2A586F]"
+            />
+            <div className="w-5 h-5 border-2 border-gray-400 rounded-full flex items-center justify-center group-has-[:checked]:border-[#2A586F]">
+              <div className="w-2.5 h-2.5 bg-gray-400 rounded-full group-has-[:checked]:bg-[#2A586F]"></div>
+            </div>
+            <span className="text-black">Student</span>
+          </label>
 
-  {/* Employee */}
-  <label className="flex items-center gap-2 cursor-pointer group">
-    <input
-      type="radio"
-      name="role"
-      value="employee"
-      className="hidden"
-    />
-    <div className="w-5 h-5 border-2 border-gray-400 rounded-full flex items-center justify-center group-has-[:checked]:border-[#2A586F]">
-      <div className="w-2.5 h-2.5 bg-gray-400 rounded-full group-has-[:checked]:bg-[#2A586F]"></div>
-    </div>
-    <span className="text-black">Employee</span>
-  </label>
-</div>
+          {/* Employee */}
+          <label className="flex items-center gap-2 cursor-pointer group">
+            <input
+              type="radio"
+              name="role"
+              value="employee"
+              className="hidden"
+            />
+            <div className="w-5 h-5 border-2 border-gray-400 rounded-full flex items-center justify-center group-has-[:checked]:border-[#2A586F]">
+              <div className="w-2.5 h-2.5 bg-gray-400 rounded-full group-has-[:checked]:bg-[#2A586F]"></div>
+            </div>
+            <span className="text-black">Employee</span>
+          </label>
+        </div>
 
         <label className="text-[18px] font-bold mt-3 ">Password</label>
         <input
@@ -111,9 +111,9 @@ export default function Register({}: Props) {
           Save
         </button>
         <small className="text-center mt-3">
-        Already have an account?{" "}
+          Already have an account?{" "}
           <Link to={"/login"} className="text-blue-600">
-          Login Now
+            Login Now
           </Link>
         </small>
       </form>

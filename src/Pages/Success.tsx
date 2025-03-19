@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { GoHome } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -13,9 +15,9 @@ export default function Success({}: Props) {
         { rating: 5, emoji: '😁', label: 'Very Satisfied' }
       ];
   return (
-      <div className="flex flex-col justify-center items-center p-3 lg:p-0 ">
+      <div className="flex flex-col justify-center items-center p-3 lg:p-0  ">
       <div className="flex flex-col justify-center items-center gap-2">
-        <img src="/check.png" alt="Sucess" className="w-20 " />
+        <img src="/check.png" alt="Sucess" className="w-[70px]" />
         <p className="font-semibold text-[18px] text-center">
           Congratulations you have Succesfully Completed The Test
         </p>
@@ -69,14 +71,15 @@ export default function Success({}: Props) {
       <button
       
         disabled={selectedRating === null}
-        className={`md:w-1/3 bg-[#2A586F] lg:px-4  py-2 rounded-md text-white font-bold text-sm
+        className={`md:w-1/3 bg-[#2A586F] lg:px-4 border px-1  py-2 rounded-md text-white font-bold text-sm
           ${selectedRating !== null 
-            ? ' hover:bg-transparent hover:text-[#2A586F] border border-[#2A586F]' 
+            ? ' hover:bg-transparent hover:text-[#2A586F] border-[#2A586F] ' 
             : ' bg-[#2A586F] cursor-not-allowed'}`}
       >
         Submit Feedback
       </button>
     </div>
+  <Link to={"/"} className="flex items-center gap-2 my-2"><GoHome /><span>Back to home</span></Link>
     </div>
   );
 }

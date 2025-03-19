@@ -3,5 +3,13 @@
 
 body{
   font-family: "Nunito Sans", sans-serif;
+
 }
+@media (min-width: 1400px) {
+ body {
+  overflow-y: hidden;
+    
+  }
+}
+
   
