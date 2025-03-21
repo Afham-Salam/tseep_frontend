@@ -10,11 +10,14 @@ export default function Navbar() {
   const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleLogout = () => {
+ const handleLogout = () => {
     setShow(false);
     navigate("/login");
     localStorage.removeItem("token");
+    localStorage.removeItem("UserID");
   };
+ 
+
 
   // Close dropdown on outside click
   useEffect(() => {

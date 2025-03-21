@@ -18,8 +18,8 @@ const ErrorPage: React.FC<ErrorPageProps> = ({}) => {
         Soory,it looks like the page get
       </p>
       <button
-        onClick={() => navigate("/")}
-        className="px-10  py-3  text-sm font-semibold mt-5 border-2 bg-[#2A586F] text-white  rounded-md"
+        onClick={() => navigate("/question")}
+        className="px-10  py-3  cursor-pointer text-sm font-semibold mt-5 border-2 bg-[#2A586F] text-white  rounded-md"
       >
         Back to Home
       </button>

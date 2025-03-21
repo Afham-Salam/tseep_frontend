@@ -28,6 +28,9 @@ export default function Questions() {
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [totalQuestions, setTotalQuestions] = useState(10);
   const [selectedAnswer, setSelectedAnswer] = useState<any>(null);
+  const [questionStatus, setQuestionStatus] = useState<{
+    [key: number]: string;
+  }>({});
 
   useEffect(() => {
     if (isLargeScreen) {
@@ -98,7 +101,11 @@ export default function Questions() {
         }
       );
 
-      console.log("Answer submitted successfully");
+      // Update question status
+      setQuestionStatus((prev) => ({
+        ...prev,
+        [currentQuestion]: "attended",
+      }));
 
       if (currentQuestion === totalQuestions) {
         navigate("/success");
@@ -145,19 +152,30 @@ export default function Questions() {
 
               <div className="flex flex-col mt-16 gap-4">
                 <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-2">
-                  {[...Array(totalQuestions)].map((_, index) => (
-                    <button
-                      key={index + 1}
-                      className={`aspect-auto py-2 rounded border cursor-pointer flex items-center justify-center text-lg
-                ${
-                  currentQuestion === index + 1 ? "bg-[#e7ffd9] text-black" : ""
-                }
-              `}
-                      onClick={() => setCurrentQuestion(index + 1)}
-                    >
-                      {index + 1}
-                    </button>
-                  ))}
+                  {[...Array(totalQuestions)].map((_, index) => {
+                    const questionIndex = index + 1;
+                    let bgColor = "bg-gray-200"; // Default: Yet to Attend
+
+                    if (questionStatus[questionIndex] === "attended") {
+                      bgColor = "bg-[#e7ffd9]"; // Attended
+                    } else  (
+                      questionStatus[questionIndex] === "not attended"
+                    ) 
+
+                    return (
+                      <button
+                        key={questionIndex}
+                        className={`py-2 rounded border cursor-pointer flex items-center justify-center text-lg ${bgColor} ${
+                          currentQuestion === questionIndex
+                            ? "border-2 border-black"
+                            : ""
+                        }`}
+                        onClick={() => setCurrentQuestion(questionIndex)}
+                      >
+                        {questionIndex}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -233,7 +251,9 @@ export default function Questions() {
                     className={`p-3 rounded-md flex items-center cursor-pointer w-60 group ${
                       selectedAnswer === option ? "bg-[#e7ffd9]" : "bg-gray-100"
                     }`}
-                    onClick={() => setSelectedAnswer(option)}
+                    onClick={() => {
+                      setSelectedAnswer(option);
+                    }}
                   >
                     <label className="flex items-center gap-2 cursor-pointer w-full">
                       <input
